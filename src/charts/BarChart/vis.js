@@ -1,4 +1,5 @@
 import * as d3 from 'd3';
+import d3Tip from "d3-tip"
 import './style.css';
 
 const draw = (props) => {
@@ -20,6 +21,15 @@ const draw = (props) => {
     //  Color choices
     let color = d3.scaleOrdinal().range(['steelblue', 'green', 'red']);
 
+    let tip = d3Tip()
+    .attr('class', 'd3-tip')
+    .offset([-10, 0])
+    .html(function(d) {
+        return "<strong>Age:</strong> <span style='color:red'>" + d.age + "</span>";
+    })
+
+    svg.call(tip)
+
     // Scale the range of the data in the domains
     let x = d3.scaleBand()
           .range([0, width])
@@ -38,15 +48,8 @@ const draw = (props) => {
         .attr("width", x.bandwidth())
         .attr("y", function(d) { return y(d.age); })
         .attr("height", function(d) { return height - y(d.age); })
-        .on("mouseover", function() {
-            d3.select(this)
-            	.attr("fill", "#757575");
-        })
-        .on("mouseout", function(d) {
-            d3.select(this).attr("fill", function() {
-                return color(d.gender);
-            });
-        })
+        .on("mouseover",tip.show)
+        .on("mouseout", tip.hide)
         .attr("fill", function (d) {
             return color(d.gender);
         });
