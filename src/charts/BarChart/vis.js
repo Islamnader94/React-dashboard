@@ -38,6 +38,15 @@ const draw = (props) => {
         .attr("width", x.bandwidth())
         .attr("y", function(d) { return y(d.age); })
         .attr("height", function(d) { return height - y(d.age); })
+        .on("mouseover", function() {
+            d3.select(this)
+            	.attr("fill", "#757575");
+        })
+        .on("mouseout", function(d) {
+            d3.select(this).attr("fill", function() {
+                return color(d.gender);
+            });
+        })
         .attr("fill", function (d) {
             return color(d.gender);
         });
