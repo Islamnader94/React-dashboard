@@ -1,0 +1,12 @@
+#gener-filter {
+    height: 400px;
+    /* background-color: yellow; */
+}
+
+#gender-filter > h3 {
+    margin-left: 5px;
+}
+
+#header {
+    color: steelblue;
+}

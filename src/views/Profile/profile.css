@@ -1,0 +1,20 @@
+#profile {
+    height: 200px;
+    background-color: rgb(189, 189, 189);
+}
+
+.avatar-view {
+    float: left;
+    margin-left: 10px;
+    margin-top: 16px;
+}
+
+.info-view {
+    float: left;
+    margin-left: 30px;
+    margin-top: 16px;
+}
+
+#header {
+    color: steelblue;
+}
