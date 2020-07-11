@@ -4,3 +4,7 @@
 ```
 npm install && npm start
 ```
+
+##  Deployed URL:
+
+https://dashboard-react-d3js.herokuapp.com/
